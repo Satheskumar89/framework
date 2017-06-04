@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Year;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 import java.util.Random;
@@ -20,6 +21,11 @@ public class Utils {
     public static String getDay(int noOfDays) {
         LocalDate today = LocalDate.now();
         return convertDateToString(today.plusDays(noOfDays));
+    }
+    public static Year getYear(int noOfYear) {
+        LocalDate today = LocalDate.now();
+        Year year = Year.of(today.getYear());
+        return year.plusYears(noOfYear);
     }
     public static String convertDateToString(LocalDate date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");

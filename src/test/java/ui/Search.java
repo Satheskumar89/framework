@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
  */
 public class Search {
     public static final By displayUserName = By.id("username_show");
+    public static final By formName = By.id("search_form");
     public static final By locationField = By.id("location");
     public static final By hotelsField = By.id("hotels");
     public static final By roomTypeField = By.id("room_type");

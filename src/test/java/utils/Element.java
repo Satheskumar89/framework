@@ -20,10 +20,12 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class Element {
     WebDriver driver;
     ExtentTest testReporter;
-    public Element(WebDriver driver, ExtentTest testReporter){
+
+    public Element(WebDriver driver, ExtentTest testReporter) {
         this.driver = driver;
         this.testReporter = testReporter;
     }
+
     /***************************************************************************************************************
      *********************************************BUTTON************************************************************
      ***************************************************************************************************************/
@@ -35,7 +37,6 @@ public class Element {
         }
         return false;
     }
-
     /***************************************************************************************************************
      **********************************************TEXT*************************************************************
      ***************************************************************************************************************/
@@ -83,13 +84,24 @@ public class Element {
         }
         return false;
     }
+    public String getSelectedText(By by) {
+        if (waitForElement(by)) {
+            return new Select(driver.findElement(by)).getFirstSelectedOption().getText();
+        }
+        return null;
+    }
 
     public boolean selectTextByValue(By by, String value) {
-        if (waitForElement(by)) {
-            new Select(driver.findElement(by)).selectByValue(value);
-            return true;
+        try {
+            if (waitForElement(by)) {
+                new Select(driver.findElement(by)).selectByValue(value);
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            testReporter.log(LogStatus.WARNING, by.toString(), "Value '"+value+"' not available");
+            return false;
         }
-        return false;
     }
 
     public List<String> getAllOptions(By by) {
@@ -234,6 +246,33 @@ public class Element {
         return "";
     }
 
+    public boolean isInt(String s) {
+        try {
+            int i = Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException er) {
+            return false;
+        }
+    }
+    public boolean isNotEditable(By by) {
+        if (waitForElement(by)) {
+            if(!driver.findElement(by).isEnabled()) return true;
+            else {
+                testReporter.log(LogStatus.WARNING, by.toString(), "Editable");
+            }
+        }
+        return false;
+    }
+    public boolean isEditable(By by) {
+        if (waitForElement(by)) {
+            if(driver.findElement(by).isEnabled()) return true;
+            else {
+                testReporter.log(LogStatus.WARNING, by.toString(), "Not-Editable");
+            }
+        }
+        return false;
+    }
+
     public boolean containsText(By by, String searchText) {
         if (waitForElement(by)) {
             String text = driver.findElement(by).getText();
@@ -253,7 +292,7 @@ public class Element {
                     .ignoring(WebDriverException.class, java.util.NoSuchElementException.class);
             wait.until(driver -> driver.findElement(by));
         } catch (Exception e) {
-            testReporter.log(LogStatus.WARNING,by.toString(),"Not available");
+            testReporter.log(LogStatus.WARNING, by.toString(), "Not available");
             return false;
         }
         return true;
