@@ -202,7 +202,7 @@ public class TestAdactin {
     }
     @Test(priority = 15)
     public void testItinerarynotEditableInConfirmation() {
-        InstanceContainer ic = setTestInstance("Verify itinerary non-editable in confirmationPage");
+        InstanceContainer ic = setTestInstance("Verify itinerary non-editable in confirmationPage.");
         LoginPage.login(ic, "home1234", "root1234");
         LoginPage.validateNextScreen(ic, true, Search.formName);
         SearchPage.searchPage(ic, "Sydney", "Hotel Creek", "Standard", "2", 0, 1, "1", "");
