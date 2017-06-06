@@ -17,9 +17,9 @@ public class LogoutPage {
 
     public static void validateNextScreen(InstanceContainer ic, boolean stopTestOnFailure,By by) {
         if (ic.element.waitForElement(by))
-            ic.testReport.log(LogStatus.PASS, "Verify logout operation", "Logged out successfully"+by);
+            ic.element.logStep(LogStatus.PASS, "Verify logout operation", "Logged out successfully"+by);
         else {
-            ic.testReport.log(LogStatus.FAIL, "Verify logout operation", "log out failed");
+            ic.element.logStepWithScreenShot(LogStatus.FAIL, "Verify logout operation", "log out failed");
             if (stopTestOnFailure) {
                 ic.driver.quit();
                 ic.reports.endTest(ic.testReport);

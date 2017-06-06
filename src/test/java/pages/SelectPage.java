@@ -49,11 +49,11 @@ public class SelectPage {
         List<WebElement> rows = mytable.findElements(By.tagName("tr"));
         int noOfRows = rows.size();
         if (noOfRows<=1) {
-            ic.testReport.log(LogStatus.WARNING, "NoOfRows Retrieved","No Rows Retrieved");
+            ic.element.logStep(LogStatus.WARNING, "NoOfRows Retrieved","No Rows Retrieved");
             return values;
         }
         else {
-            ic.testReport.log(LogStatus.INFO, "NoOfRows Retrieved", String.valueOf(noOfRows-1));
+            ic.element.logStep(LogStatus.INFO, "NoOfRows Retrieved", String.valueOf(noOfRows-1));
         }
 
         WebElement columnPosition = rows.get(0).findElement(By.xpath("*[. = '"+columName+"']"));
@@ -77,7 +77,7 @@ public class SelectPage {
             for (String temp : values) {
                 if (temp.equalsIgnoreCase(expectedValue));
                 else {
-                    ic.testReport.log(LogStatus.FAIL, "Check columnValues matching "+ expectedValue, "Not Matching");
+                    ic.element.logStepWithScreenShot(LogStatus.FAIL, "Check columnValues matching "+ expectedValue, "Not Matching");
                     isFailurePresent = true;
                     if (stopTestOnFailure) {
                         ic.driver.quit();
@@ -85,16 +85,16 @@ public class SelectPage {
                     }
                 }
             }
-            if(!isFailurePresent) ic.testReport.log(LogStatus.PASS, "Check columnValues matching '"+ expectedValue+"'", "Matching");
+            if(!isFailurePresent) ic.element.logStep(LogStatus.PASS, "Check columnValues matching '"+ expectedValue+"'", "Matching");
         }
         public static SelectPage selectFirstHotel(InstanceContainer ic, boolean stopTestOnFailure) {
             SelectPage obj = new SelectPage(ic);;
         if (ic.element.click(Select.firstRow) && ic.element.click(Select.continueButton)) {
-            ic.testReport.log(LogStatus.PASS, "Select First Row","Row selected");
+            ic.element.logStep(LogStatus.PASS, "Select First Row","Row selected");
             return obj;
         }
         else {
-            ic.testReport.log(LogStatus.FAIL, "Select First Row ", "Unable to select first row");
+            ic.element.logStepWithScreenShot(LogStatus.FAIL, "Select First Row ", "Unable to select first row");
             if (stopTestOnFailure) {
                 ic.driver.quit();
                 ic.reports.endTest(ic.testReport);
@@ -105,9 +105,9 @@ public class SelectPage {
 
     public static void validateNextScreen(InstanceContainer ic, boolean stopTestOnFailure, By by) {
         if (ic.element.waitForElement(by))
-            ic.testReport.log(LogStatus.PASS, "Verify select operation", "Select successful");
+            ic.element.logStep(LogStatus.PASS, "Verify select operation", "Select successful");
         else {
-            ic.testReport.log(LogStatus.FAIL, "Verify select operation", "Select failed");
+            ic.element.logStepWithScreenShot(LogStatus.FAIL, "Verify select operation", "Select failed");
             if (stopTestOnFailure) {
                 ic.driver.quit();
                 ic.reports.endTest(ic.testReport);

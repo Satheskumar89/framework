@@ -18,9 +18,9 @@ public class LoginPage {
 
     public static void validateNextScreen(InstanceContainer ic, boolean stopTestOnFailure,By by) {
         if (ic.element.waitForElement(Search.displayUserName) && ic.element.waitForElement(by))
-            ic.testReport.log(LogStatus.PASS, "Verify login operation", "logged in successfully"+by);
+            ic.element.logStep(LogStatus.PASS, "Verify login operation", "logged in successfully"+by);
         else {
-            ic.testReport.log(LogStatus.FAIL, "Verify login operation", "log in failed");
+            ic.element.logStepWithScreenShot(LogStatus.FAIL, "Verify login operation", "log in failed");
             if (stopTestOnFailure) {
                 ic.driver.quit();
                 ic.reports.endTest(ic.testReport);

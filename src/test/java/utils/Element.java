@@ -2,12 +2,15 @@ package utils;
 
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -305,6 +308,21 @@ public class Element {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public void logStep(LogStatus status, String expected, String actual) {
+        testReporter.log(status, expected, actual);
+    }
+
+    public void logStepWithScreenShot(LogStatus status, String expected, String actual) {
+        long number = (long) Math.floor(Math.random() * 900000000L) + 10000000L;
+        try {
+            File image = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(image, new File("./reports/images/" + number + ".jpg"));
+        } catch (WebDriverException | IOException e) {
+            e.printStackTrace();
+        }
+        testReporter.log(status, expected, actual + testReporter.addScreenCapture("./images/" + number + ".jpg"));
     }
 
 }

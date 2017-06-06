@@ -57,52 +57,52 @@ public class BookingPage {
         BookingPage bookingPage = new BookingPage(ic);
         boolean isFailurePresent = false;
         if (selectPage.selectedHotelName.equalsIgnoreCase(bookingPage.hotelName)){
-            ic.testReport.log(LogStatus.PASS, "Expected HotelName : "+selectPage.selectedHotelName, "Actual : " +bookingPage.hotelName);
+            ic.element.logStep(LogStatus.PASS, "Expected HotelName : "+selectPage.selectedHotelName, "Actual : " +bookingPage.hotelName);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected HotelName : "+selectPage.selectedHotelName, "Actual : " +bookingPage.hotelName);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected HotelName : "+selectPage.selectedHotelName, "Actual : " +bookingPage.hotelName);
             isFailurePresent=true;
         }
         if (selectPage.selectedLocation.equalsIgnoreCase(bookingPage.location)){
-            ic.testReport.log(LogStatus.PASS, "Expected Location : "+selectPage.selectedLocation, "Actual : " +bookingPage.location);
+            ic.element.logStep(LogStatus.PASS, "Expected Location : "+selectPage.selectedLocation, "Actual : " +bookingPage.location);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected Location : "+selectPage.selectedLocation, "Actual : " +bookingPage.location);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected Location : "+selectPage.selectedLocation, "Actual : " +bookingPage.location);
             isFailurePresent=true;
         }
         if (selectPage.selectedRoomType.equalsIgnoreCase(bookingPage.roomType)){
-            ic.testReport.log(LogStatus.PASS, "Expected RoomType : "+selectPage.selectedRoomType, "Actual : " +bookingPage.roomType);
+            ic.element.logStep(LogStatus.PASS, "Expected RoomType : "+selectPage.selectedRoomType, "Actual : " +bookingPage.roomType);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected RoomType : "+selectPage.selectedRoomType, "Actual : " +bookingPage.roomType);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected RoomType : "+selectPage.selectedRoomType, "Actual : " +bookingPage.roomType);
             isFailurePresent=true;
         }
         if (selectPage.selectedRoom.substring(0,selectPage.selectedRoom.indexOf(" ")).equalsIgnoreCase(bookingPage.noOfRooms.substring(0,bookingPage.noOfRooms.indexOf(" ")))){
-            ic.testReport.log(LogStatus.PASS, "Expected NoOfRooms : "+selectPage.selectedRoom, "Actual : " +bookingPage.noOfRooms);
+            ic.element.logStep(LogStatus.PASS, "Expected NoOfRooms : "+selectPage.selectedRoom, "Actual : " +bookingPage.noOfRooms);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected NoOfRooms : "+selectPage.selectedRoom, "Actual : " +bookingPage.noOfRooms);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected NoOfRooms : "+selectPage.selectedRoom, "Actual : " +bookingPage.noOfRooms);
             isFailurePresent=true;
         }
         if (selectPage.selectedNoDay.substring(0,selectPage.selectedNoDay.indexOf(" ")).equalsIgnoreCase(bookingPage.totalDays.substring(0,bookingPage.totalDays.indexOf(" ")))){
-            ic.testReport.log(LogStatus.PASS, "Expected NoOfDays : "+selectPage.selectedNoDay, "Actual : " +bookingPage.totalDays);
+            ic.element.logStep(LogStatus.PASS, "Expected NoOfDays : "+selectPage.selectedNoDay, "Actual : " +bookingPage.totalDays);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected NoOfDays : "+selectPage.selectedNoDay, "Actual : " +bookingPage.totalDays);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected NoOfDays : "+selectPage.selectedNoDay, "Actual : " +bookingPage.totalDays);
             isFailurePresent=true;
         }
         if (selectPage.selectedPricePerNight.equalsIgnoreCase(bookingPage.pricePerNight)){
-            ic.testReport.log(LogStatus.PASS, "Expected PricePerNight : "+selectPage.selectedPricePerNight, "Actual : " +bookingPage.pricePerNight);
+            ic.element.logStep(LogStatus.PASS, "Expected PricePerNight : "+selectPage.selectedPricePerNight, "Actual : " +bookingPage.pricePerNight);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected PricePerNight : "+selectPage.selectedPricePerNight, "Actual : " +bookingPage.pricePerNight);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected PricePerNight : "+selectPage.selectedPricePerNight, "Actual : " +bookingPage.pricePerNight);
             isFailurePresent=true;
         }
         if (selectPage.selectedTotalPrice.equalsIgnoreCase(bookingPage.totalPrice)){
-            ic.testReport.log(LogStatus.PASS, "Expected TotalPrice : "+selectPage.selectedTotalPrice, "Actual : " +bookingPage.totalPrice);
+            ic.element.logStep(LogStatus.PASS, "Expected TotalPrice : "+selectPage.selectedTotalPrice, "Actual : " +bookingPage.totalPrice);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected TotalPrice : "+selectPage.selectedTotalPrice, "Actual : " +bookingPage.totalPrice);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected TotalPrice : "+selectPage.selectedTotalPrice, "Actual : " +bookingPage.totalPrice);
             isFailurePresent=true;
         }
         if (isFailurePresent) {
@@ -122,12 +122,12 @@ public class BookingPage {
         String noOfDays = ic.element.getText(Book.totalDays);
         int noOfDaysInInt = Integer.parseInt(noOfDays.substring(0,noOfDays.indexOf(" ")));
         float expectedTotalPrice = pricePerNightInInt*noOfRoomsInInt*noOfDaysInInt;
-        ic.testReport.log(LogStatus.INFO, "Expected / Actual Total Price :", expectedTotalPrice +" / "+ totalPriceInFloat);
+        ic.element.logStep(LogStatus.INFO, "Expected / Actual Total Price :", expectedTotalPrice +" / "+ totalPriceInFloat);
             if (expectedTotalPrice==totalPriceInFloat){
-                ic.testReport.log(LogStatus.PASS, "Total Price = price-per-night*noof-rooms*no-of-days", "TRUE");
+                ic.element.logStep(LogStatus.PASS, "Total Price = price-per-night*noof-rooms*no-of-days", "TRUE");
             }
             else {
-                ic.testReport.log(LogStatus.FAIL, "Total Price = price-per-night*noof-rooms*no-of-days", "FALSE");
+                ic.element.logStepWithScreenShot(LogStatus.FAIL, "Total Price = price-per-night*noof-rooms*no-of-days", "FALSE");
                 if (stopTestOnFailure) {
                     ic.driver.quit();
                     ic.reports.endTest(ic.testReport);
@@ -159,12 +159,12 @@ public class BookingPage {
         float expectedTotalPrice = pricePerNightInInt*noOfRoomsInInt*noOfDaysInInt;
         float gst = (expectedTotalPrice*10)/100;
         float expectedFinalBilledPrice = expectedTotalPrice+gst;
-        ic.testReport.log(LogStatus.INFO, "Expected / Actual finalBilledPrice :", expectedFinalBilledPrice +" / "+ finalBilledPriceInFloat);
+        ic.element.logStep(LogStatus.INFO, "Expected / Actual finalBilledPrice :", expectedFinalBilledPrice +" / "+ finalBilledPriceInFloat);
         if (expectedFinalBilledPrice==finalBilledPriceInFloat){
-            ic.testReport.log(LogStatus.PASS, "FinalBilledPrice = (price-per-night*noof-rooms*no-of-days)+10% gst", "TRUE");
+            ic.element.logStep(LogStatus.PASS, "FinalBilledPrice = (price-per-night*noof-rooms*no-of-days)+10% gst", "TRUE");
         }
         else {
-            ic.testReport.log(LogStatus.FAIL, "FinalBilledPrice = (price-per-night*noof-rooms*no-of-days)+10% gst", "FALSE");
+            ic.element.logStepWithScreenShot(LogStatus.FAIL, "FinalBilledPrice = (price-per-night*noof-rooms*no-of-days)+10% gst", "FALSE");
             if (stopTestOnFailure) {
                 ic.driver.quit();
                 ic.reports.endTest(ic.testReport);
@@ -173,9 +173,9 @@ public class BookingPage {
     }
     public static void validateNextScreen(InstanceContainer ic, boolean stopTestOnFailure, By by) {
         if (ic.element.waitForElement(by))
-            ic.testReport.log(LogStatus.PASS, "Verify booking operation", "booking successful");
+            ic.element.logStep(LogStatus.PASS, "Verify booking operation", "booking successful");
         else {
-            ic.testReport.log(LogStatus.FAIL, "Verify booking operation", "booking failed");
+            ic.element.logStepWithScreenShot(LogStatus.FAIL, "Verify booking operation", "booking failed");
             if (stopTestOnFailure) {
                 ic.driver.quit();
                 ic.reports.endTest(ic.testReport);

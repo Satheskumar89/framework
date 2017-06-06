@@ -14,9 +14,9 @@ public class SearchPage {
 
     public static void validateCheckInDateLaterThanCheckOutDate(InstanceContainer ic, boolean stopTestOnFailure) {
         if (ic.element.waitForElement(Search.checkInDateError) && ic.element.waitForElement(Search.checkOutDateError))
-            ic.testReport.log(LogStatus.PASS, "Verify Check-in date accepted after Check-out date", "Not accepting");
+            ic.element.logStep(LogStatus.PASS, "Verify Check-in date accepted after Check-out date", "Not accepting");
         else {
-            ic.testReport.log(LogStatus.FAIL, "Verify Check-in date accepted after Check-out date", "Accepting");
+            ic.element.logStepWithScreenShot(LogStatus.FAIL, "Verify Check-in date accepted after Check-out date", "Accepting");
             if (stopTestOnFailure) {
                 ic.driver.quit();
                 ic.reports.endTest(ic.testReport);
@@ -27,9 +27,9 @@ public class SearchPage {
     public static void validatePastCheckOutDate(InstanceContainer ic, boolean stopTestOnFailure) {
         if (ic.element.getText(Search.checkInDateError).equalsIgnoreCase("Check-In Date should be either Today or " +
                 "Later Date"))
-            ic.testReport.log(LogStatus.PASS, "Verify past date is not accepted in Check-in field", "Not accepting");
+            ic.element.logStep(LogStatus.PASS, "Verify past date is not accepted in Check-in field", "Not accepting");
         else {
-            ic.testReport.log(LogStatus.FAIL, "Verify past date is not accepted in Check-in field", "Accepting");
+            ic.element.logStepWithScreenShot(LogStatus.FAIL, "Verify past date is not accepted in Check-in field", "Accepting");
             if (stopTestOnFailure) {
                 ic.driver.quit();
                 ic.reports.endTest(ic.testReport);
@@ -57,9 +57,9 @@ public class SearchPage {
 
     public static void validateNextScreen(InstanceContainer ic, boolean stopTestOnFailure, By by) {
         if (ic.element.waitForElement(by))
-            ic.testReport.log(LogStatus.PASS, "Verify search operation", "Search successful");
+            ic.element.logStep(LogStatus.PASS, "Verify search operation", "Search successful");
         else {
-            ic.testReport.log(LogStatus.FAIL, "Verify search operation", "Search failed");
+            ic.element.logStepWithScreenShot(LogStatus.FAIL, "Verify search operation", "Search failed");
             if (stopTestOnFailure) {
                 ic.driver.quit();
                 ic.reports.endTest(ic.testReport);

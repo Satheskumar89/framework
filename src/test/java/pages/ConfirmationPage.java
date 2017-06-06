@@ -55,96 +55,96 @@ public class ConfirmationPage {
         SelectPage selectPageDtls = selectPage;
         boolean isFailurePresent = false;
         if (confirmationPage.hotelName.equalsIgnoreCase(bookingPage.hotelName)){
-            ic.testReport.log(LogStatus.PASS, "Expected HotelName : "+bookingPage.hotelName, "Actual : " +confirmationPage.hotelName);
+            ic.element.logStep(LogStatus.PASS, "Expected HotelName : "+bookingPage.hotelName, "Actual : " +confirmationPage.hotelName);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected HotelName : "+bookingPage.hotelName, "Actual : " +confirmationPage.hotelName);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected HotelName : "+bookingPage.hotelName, "Actual : " +confirmationPage.hotelName);
             isFailurePresent=true;
         }
         if (confirmationPage.location.equalsIgnoreCase(bookingPage.location)){
-            ic.testReport.log(LogStatus.PASS, "Expected Location : "+bookingPage.location, "Actual : " +confirmationPage.location);
+            ic.element.logStep(LogStatus.PASS, "Expected Location : "+bookingPage.location, "Actual : " +confirmationPage.location);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected Location : "+bookingPage.location, "Actual : " +confirmationPage.location);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected Location : "+bookingPage.location, "Actual : " +confirmationPage.location);
             isFailurePresent=true;
         }
         if (confirmationPage.arrivalDate.equalsIgnoreCase(selectPage.selectedArrivalDate)){
-            ic.testReport.log(LogStatus.PASS, "Expected Arrival Date : "+selectPage.selectedArrivalDate, "Actual : " +confirmationPage.arrivalDate);
+            ic.element.logStep(LogStatus.PASS, "Expected Arrival Date : "+selectPage.selectedArrivalDate, "Actual : " +confirmationPage.arrivalDate);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected Arrival Date : "+selectPage.selectedArrivalDate, "Actual : " +confirmationPage.arrivalDate);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected Arrival Date : "+selectPage.selectedArrivalDate, "Actual : " +confirmationPage.arrivalDate);
             isFailurePresent=true;
         }
         if (confirmationPage.departureDate.equalsIgnoreCase(selectPage.selectedDepartureDate)){
-            ic.testReport.log(LogStatus.PASS, "Expected Arrival Date : "+selectPage.selectedDepartureDate, "Actual : " +confirmationPage.departureDate);
+            ic.element.logStep(LogStatus.PASS, "Expected Arrival Date : "+selectPage.selectedDepartureDate, "Actual : " +confirmationPage.departureDate);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected Arrival Date : "+selectPage.selectedDepartureDate, "Actual : " +confirmationPage.departureDate);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected Arrival Date : "+selectPage.selectedDepartureDate, "Actual : " +confirmationPage.departureDate);
             isFailurePresent=true;
         }
 
         if (confirmationPage.roomType.equalsIgnoreCase(bookingPage.roomType)){
-            ic.testReport.log(LogStatus.PASS, "Expected RoomType : "+bookingPage.roomType, "Actual : " +confirmationPage.roomType);
+            ic.element.logStep(LogStatus.PASS, "Expected RoomType : "+bookingPage.roomType, "Actual : " +confirmationPage.roomType);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected RoomType : "+bookingPage.roomType, "Actual : " +confirmationPage.roomType);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected RoomType : "+bookingPage.roomType, "Actual : " +confirmationPage.roomType);
             isFailurePresent=true;
         }
         if (confirmationPage.noOfRooms.substring(0,confirmationPage.noOfRooms.indexOf(" ")).equalsIgnoreCase(bookingPage.noOfRooms.substring(0,bookingPage.noOfRooms.indexOf(" ")))){
-            ic.testReport.log(LogStatus.PASS, "Expected NoOfRooms : "+bookingPage.noOfRooms, "Actual : " +confirmationPage.noOfRooms);
+            ic.element.logStep(LogStatus.PASS, "Expected NoOfRooms : "+bookingPage.noOfRooms, "Actual : " +confirmationPage.noOfRooms);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected NoOfRooms : "+bookingPage.noOfRooms, "Actual : " +confirmationPage.noOfRooms);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected NoOfRooms : "+bookingPage.noOfRooms, "Actual : " +confirmationPage.noOfRooms);
             isFailurePresent=true;
         }
 
         if (confirmationPage.pricePerNight.equalsIgnoreCase(bookingPage.pricePerNight)){
-            ic.testReport.log(LogStatus.PASS, "Expected PricePerNight : "+bookingPage.pricePerNight, "Actual : " +confirmationPage.pricePerNight);
+            ic.element.logStep(LogStatus.PASS, "Expected PricePerNight : "+bookingPage.pricePerNight, "Actual : " +confirmationPage.pricePerNight);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected PricePerNight : "+bookingPage.pricePerNight, "Actual : " +confirmationPage.pricePerNight);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected PricePerNight : "+bookingPage.pricePerNight, "Actual : " +confirmationPage.pricePerNight);
             isFailurePresent=true;
         }
         if (confirmationPage.totalPrice.equalsIgnoreCase(bookingPage.totalPrice)){
-            ic.testReport.log(LogStatus.PASS, "Expected TotalPrice : "+bookingPage.totalPrice, "Actual : " +confirmationPage.totalPrice);
+            ic.element.logStep(LogStatus.PASS, "Expected TotalPrice : "+bookingPage.totalPrice, "Actual : " +confirmationPage.totalPrice);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected TotalPrice : "+bookingPage.totalPrice, "Actual : " +confirmationPage.totalPrice);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected TotalPrice : "+bookingPage.totalPrice, "Actual : " +confirmationPage.totalPrice);
             isFailurePresent=true;
         }
         if (confirmationPage.gst.equalsIgnoreCase(bookingPage.gst)){
-            ic.testReport.log(LogStatus.PASS, "Expected gst : "+bookingPage.gst, "Actual : " +confirmationPage.gst);
+            ic.element.logStep(LogStatus.PASS, "Expected gst : "+bookingPage.gst, "Actual : " +confirmationPage.gst);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected gst : "+bookingPage.gst, "Actual : " +confirmationPage.gst);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected gst : "+bookingPage.gst, "Actual : " +confirmationPage.gst);
             isFailurePresent=true;
         }
         if (confirmationPage.finalBilledPrice.equalsIgnoreCase(bookingPage.finalBilledPrice)){
-            ic.testReport.log(LogStatus.PASS, "Expected finalBilledPrice : "+bookingPage.finalBilledPrice, "Actual : " +confirmationPage.finalBilledPrice);
+            ic.element.logStep(LogStatus.PASS, "Expected finalBilledPrice : "+bookingPage.finalBilledPrice, "Actual : " +confirmationPage.finalBilledPrice);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected finalBilledPrice : "+bookingPage.finalBilledPrice, "Actual : " +confirmationPage.finalBilledPrice);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected finalBilledPrice : "+bookingPage.finalBilledPrice, "Actual : " +confirmationPage.finalBilledPrice);
             isFailurePresent=true;
         }
         if (confirmationPage.firstNameField.equalsIgnoreCase(bookingPage.firstNameField)){
-            ic.testReport.log(LogStatus.PASS, "Expected firstNameField : "+bookingPage.firstNameField, "Actual : " +confirmationPage.firstNameField);
+            ic.element.logStep(LogStatus.PASS, "Expected firstNameField : "+bookingPage.firstNameField, "Actual : " +confirmationPage.firstNameField);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected firstNameField : "+bookingPage.firstNameField, "Actual : " +confirmationPage.firstNameField);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected firstNameField : "+bookingPage.firstNameField, "Actual : " +confirmationPage.firstNameField);
             isFailurePresent=true;
         }
         if (confirmationPage.lastNameField.equalsIgnoreCase(bookingPage.lastNameField)){
-            ic.testReport.log(LogStatus.PASS, "Expected lastNameField : "+bookingPage.lastNameField, "Actual : " +confirmationPage.lastNameField);
+            ic.element.logStep(LogStatus.PASS, "Expected lastNameField : "+bookingPage.lastNameField, "Actual : " +confirmationPage.lastNameField);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected lastNameField : "+bookingPage.lastNameField, "Actual : " +confirmationPage.lastNameField);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected lastNameField : "+bookingPage.lastNameField, "Actual : " +confirmationPage.lastNameField);
             isFailurePresent=true;
         }
         if (confirmationPage.addressField.equalsIgnoreCase(bookingPage.addressField)){
-            ic.testReport.log(LogStatus.PASS, "Expected addressField : "+bookingPage.addressField, "Actual : " +confirmationPage.addressField);
+            ic.element.logStep(LogStatus.PASS, "Expected addressField : "+bookingPage.addressField, "Actual : " +confirmationPage.addressField);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL,"Expected addressField : "+bookingPage.addressField, "Actual : " +confirmationPage.addressField);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL,"Expected addressField : "+bookingPage.addressField, "Actual : " +confirmationPage.addressField);
             isFailurePresent=true;
         }
         if (isFailurePresent) {
@@ -158,10 +158,10 @@ public class ConfirmationPage {
         ConfirmationPage confirmationPage = new ConfirmationPage(ic);
         boolean isFailurePresent = false;
         if (confirmationPage.orderNo!=null && !confirmationPage.orderNo.isEmpty()){
-            ic.testReport.log(LogStatus.PASS, "Orrder Nbr Generation Check ", confirmationPage.orderNo);
+            ic.element.logStep(LogStatus.PASS, "Orrder Nbr Generation Check ", confirmationPage.orderNo);
         }
         else {
-            ic.testReport.log(LogStatus.FAIL, "Orrder Nbr Generation Check ", confirmationPage.orderNo);
+            ic.element.logStepWithScreenShot(LogStatus.FAIL, "Orrder Nbr Generation Check ", confirmationPage.orderNo);
             isFailurePresent=true;
         }
         if (isFailurePresent) {
@@ -172,9 +172,9 @@ public class ConfirmationPage {
     }
     public static void validateNextScreen(InstanceContainer ic, boolean stopTestOnFailure, By by) {
         if (ic.element.waitForElement(by))
-            ic.testReport.log(LogStatus.PASS, "Verify booking operation", "booking successful");
+            ic.element.logStep(LogStatus.PASS, "Verify booking operation", "booking successful");
         else {
-            ic.testReport.log(LogStatus.FAIL, "Verify booking operation", "booking failed");
+            ic.element.logStepWithScreenShot(LogStatus.FAIL, "Verify booking operation", "booking failed");
             if (stopTestOnFailure) {
                 ic.driver.quit();
                 ic.reports.endTest(ic.testReport);
@@ -183,9 +183,9 @@ public class ConfirmationPage {
     }
     public static void validatePageEditable(InstanceContainer ic, boolean stopTestOnFailure) {
         if (ic.element.isNotEditable(Confirmation.hotelName) && ic.element.isNotEditable(Confirmation.location) && ic.element.isNotEditable(Confirmation.roomType) && ic.element.isNotEditable(Confirmation.arrivalDate) && ic.element.isNotEditable(Confirmation.departureDate) && ic.element.isNotEditable(Confirmation.noOfRooms) && ic.element.isNotEditable(Confirmation.adultsPerRoom) && ic.element.isNotEditable(Confirmation.childrensPerRoom) && ic.element.isNotEditable(Confirmation.pricePerNight) && ic.element.isNotEditable(Confirmation.totalPrice) && ic.element.isNotEditable(Confirmation.gst) && ic.element.isNotEditable(Confirmation.finalBilledPrice) && ic.element.isNotEditable(Confirmation.firstNameField) && ic.element.isNotEditable(Confirmation.lastNameField) && ic.element.isNotEditable(Confirmation.addressField) && ic.element.isNotEditable(Confirmation.orderNo))
-            ic.testReport.log(LogStatus.PASS, "Fields Editable ?", "Non-Editable");
+            ic.element.logStep(LogStatus.PASS, "Fields Editable ?", "Non-Editable");
         else {
-            ic.testReport.log(LogStatus.FAIL, "Fields Editable ?", "Editable");
+            ic.element.logStepWithScreenShot(LogStatus.FAIL, "Fields Editable ?", "Editable");
             if (stopTestOnFailure) {
                 ic.driver.quit();
                 ic.reports.endTest(ic.testReport);
